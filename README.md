@@ -1,6 +1,7 @@
 ## 电商项目说明
 
 ### 1. 技术栈
+
 #### 1.1 客户端
 
 - 脚本：TypeScript
@@ -12,3 +13,4 @@
 - 路由状态同步：connected-react-router
 - 网络请求：Axios
 - 调试工具：redux-devtools-extension
+
