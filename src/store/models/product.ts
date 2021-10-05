@@ -8,7 +8,7 @@ export interface Product {
   category: Category
   quantity: number
   sold?: number
-  photo: FormData
+  photo?: FormData
   shipping: boolean
   createdAt: string
 }

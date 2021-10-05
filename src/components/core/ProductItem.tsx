@@ -5,20 +5,35 @@ import { Product } from '../../store/models/product'
 const { Title, Paragraph } = Typography
 
 interface Props {
-  product: Product
+  product: Product,
+  showDetailBtn?: boolean,
+  showCartBtn?: boolean,
 }
 
-function ProductItem({ product }: Props) {
-  return (
-    <Card
-      actions={[
+function ProductItem({ product, showDetailBtn = true,  showCartBtn = true}: Props) {
+
+  const actionButtons = () => {
+    let buttons = []
+    if (showDetailBtn) {
+      buttons.push(
         <Button>
-          <Link to="">查看详情</Link>
-        </Button>,
+          <Link to={`/product/${product._id}`}>查看详情</Link>
+        </Button>
+      )
+    }
+    if (showCartBtn) {
+      buttons.push(
         <Button>
           <Link to="">加入购物车</Link>
         </Button>
-      ]}
+      )
+    }
+    return buttons;
+  }
+
+  return (
+    <Card
+      actions={actionButtons()}
       cover={<Image alt={product.name} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
     >
       <Title level={5}>{product.name}</Title>

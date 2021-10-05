@@ -7,6 +7,12 @@
   margin-bottom: 25px;
 }
 
+.checkbox-filter .ant-checkbox-group-item {
+  display: block;
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
 .jumbotron span {
   color: #fff;
 }
