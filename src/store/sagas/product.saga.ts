@@ -11,9 +11,13 @@ function* handleGetProduct({ sortBy, order, limit }: GetProductAction) {
       quantity: 2,
       sold: 2,
       shipping: false,
-      createdAt: '2021-02-01'
+      createdAt: '2021-02-01',
+      category: {
+        name: "测试"
+      }
     }]
   }
+  console.log(sortBy)
   yield put(getProductSuccess(response.data, sortBy))
 }
 
