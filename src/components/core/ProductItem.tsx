@@ -2,6 +2,9 @@ import { Button, Card, Col, Row, Typography, Image } from 'antd';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Product } from '../../store/models/product'
+import { addItem } from '../../helpers/cart'
+import { useDispatch } from 'react-redux';
+import { push } from "connected-react-router"
 const { Title, Paragraph } = Typography
 
 interface Props {
@@ -11,6 +14,14 @@ interface Props {
 }
 
 function ProductItem({ product, showDetailBtn = true,  showCartBtn = true}: Props) {
+
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    addItem(product, () => {
+      dispatch(push('/cart'))
+    })
+  }
 
   const actionButtons = () => {
     let buttons = []
@@ -23,8 +34,8 @@ function ProductItem({ product, showDetailBtn = true,  showCartBtn = true}: Prop
     }
     if (showCartBtn) {
       buttons.push(
-        <Button>
-          <Link to="">加入购物车</Link>
+        <Button type="link" onClick={addToCart}>
+          加入购物车
         </Button>
       )
     }
